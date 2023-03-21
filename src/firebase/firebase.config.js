@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_apiKey,
-  authDomain: process.env.REACT_APP_authDomain,
-  projectId: process.env.REACT_APP_projectId,
-  storageBucket: process.env.REACT_APP_storageBucket,
-  messagingSenderId: process.env.REACT_APP_messagingSenderId,
-  appId: process.env.REACT_APP_appId,
+  apiKey: "AIzaSyBb0sIAvCVSCWR_-uR464ftXh95SWDQg2Y",
+  authDomain: "online-mobile-recharge-6aa0e.firebaseapp.com",
+  projectId: "online-mobile-recharge-6aa0e",
+  storageBucket: "online-mobile-recharge-6aa0e.appspot.com",
+  messagingSenderId: "211717707304",
+  appId: "1:211717707304:web:d5ed349a41440c5967071d",
 };
 
 // Initialize Firebase
