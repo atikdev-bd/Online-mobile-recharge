@@ -1,12 +1,22 @@
 import React from "react";
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
 const Register = () => {
+  const { register, handleSubmit } = useForm();
+
+    const registerInfo = (data) => {
+      console.log(data);
+  };
+
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col">
         <h1 className="text-4xl text-green-500">Welcome To Offer.com</h1>
-        <div className="card flex-shrink-0 shadow-2xl bg-base-100">
+        <form
+          onSubmit={handleSubmit(registerInfo)}
+          className="card flex-shrink-0 shadow-2xl bg-base-100"
+        >
           <div className="card-body">
             <div>
               <h1 className="text-2xl text-slate-700 font-semibold mb-4">
@@ -15,7 +25,7 @@ const Register = () => {
               <h2>
                 Have an Account?{" "}
                 <Link to="/login" className="underline text-blue-700">
-                  Login here
+                  Login Now
                 </Link>
               </h2>
             </div>
@@ -24,8 +34,10 @@ const Register = () => {
                 <span className="label-text">Full Name</span>
               </label>
               <input
+                {...register("name")}
                 type="text"
-                placeholder="full name"
+                name="name"
+                placeholder="Full name"
                 className="input input-bordered rounded-sm"
               />
             </div>
@@ -35,6 +47,8 @@ const Register = () => {
                   <span className="label-text">Email</span>
                 </label>
                 <input
+                  {...register("email")}
+                  name="email"
                   type="text"
                   placeholder="Email"
                   className="input input-bordered rounded-sm"
@@ -45,7 +59,9 @@ const Register = () => {
                   <span className="label-text">Mobile</span>
                 </label>
                 <input
-                  type="text"
+                  {...register("mobile")}
+                  name="mobile"
+                  type="number"
                   placeholder="Mobile"
                   className="input input-bordered rounded-sm"
                 />
@@ -57,7 +73,9 @@ const Register = () => {
                   <span className="label-text">Password</span>
                 </label>
                 <input
-                  type="text"
+                  {...register("password")}
+                  name="password"
+                  type="password"
                   placeholder="Password"
                   className="input input-bordered rounded-sm"
                 />
@@ -67,7 +85,9 @@ const Register = () => {
                   <span className="label-text">Pin</span>
                 </label>
                 <input
-                  type="text"
+                  {...register("pin")}
+                  name="pin"
+                  type="number"
                   placeholder="Pin"
                   className="input input-bordered rounded-sm"
                 />
@@ -79,9 +99,12 @@ const Register = () => {
                   Select account type
                 </span>
               </label>
-              <select className="select select-bordered rounded-sm w-full max-w-xs">
-                <option>Personal</option>
-                <option>Business</option>
+              <select
+                {...register("users")}
+                className="select select-bordered rounded-sm w-full max-w-xs"
+              >
+                <option value="Personal">Personal</option>
+                <option value="Business">Business</option>
               </select>
             </div>
 
@@ -102,7 +125,7 @@ const Register = () => {
               <button className="btn btn-primary">Register</button>
             </div>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );
